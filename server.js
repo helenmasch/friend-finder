@@ -1,26 +1,24 @@
 const express = require('express')
 const app = express()
- 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
 
-var npmPath = require('npm-path')
-var PATH = npmPath.PATH // get platform independent PATH key
- 
-npmPath(function(err, $PATH) {
-  
-  // Note: current environment is modified!
-  console.log(process.env[PATH] == $PATH) // true
-  
-  console.log($PATH)
-  // /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/.../.bin:/usr/local/bin: ...etc
-  
+const PORT = process.env.PORT || 8000
+
+// creating the public folder as route path
+app.use(express.static("public"))
+
+app.use(express.urlencoded({extended: true}))
+
+// converting data from the client to json
+app.use(express.json())
+
+const apiRoutes = require("./app/routing/apiRoutes")
+
+apiRoutes(app)
+
+const htmlRoutes = require("./app/routing/htmlRoutes")
+
+htmlRoutes(app)
+
+app.listen(PORT, function(){
+    console.log("app is listening on http://localhost:" + PORT)
 })
- 
-// more explicit alternative syntax
-npmPath.set(function(err, $PATH) {
-  // ...
-})
- 
-app.listen(3000)
