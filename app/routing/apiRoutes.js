@@ -12,7 +12,7 @@ function apiRoutes(app){
      for (let i = 0; i < friends.length; i++) {
      //    const element = array[index];fri
          for (let j = 0; j < friends[i].scores.length; j++) {
-            
+            return res.json(friends[i]);
              
          }
          
