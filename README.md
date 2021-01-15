@@ -20,6 +20,7 @@ Helen Maschmeyer
 * jQuery
 * Font Awesome
 * Heroku
+* github-pages
 
 ### Let's Connect
 * Email Me: maschmeyerhelen@gmail.com
