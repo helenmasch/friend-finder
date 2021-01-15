@@ -19,6 +19,7 @@ Helen Maschmeyer
 * Bootstrap
 * jQuery
 * Font Awesome
+* Heroku
 
 ### Let's Connect
 * Email Me: maschmeyerhelen@gmail.com
